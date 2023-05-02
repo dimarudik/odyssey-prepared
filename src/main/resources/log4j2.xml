@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Configuration status="WARN">
+<Configuration status="error">
     <Appenders>
         <File name="MainLog" fileName="logs/app.log" immediateFlush="true" append="false">
             <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
         </File>
+        <Console name="STDOUT" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n"/>
+        </Console>
     </Appenders>
     <Loggers>
         <Root level="trace">
+<!--            <AppenderRef ref="STDOUT"/>-->
             <AppenderRef ref="MainLog"/>
         </Root>
+        <Logger name="org.postgresql" level="all">
+            <AppenderRef ref="MainLog"/>
+        </Logger>
     </Loggers>
 </Configuration>

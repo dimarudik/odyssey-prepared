@@ -1,3 +1,1196 @@
-20:00:16.941 [main] INFO  org.example.App - PreferQueryMode: EXTENDED
-20:00:16.943 [main] INFO  org.example.App - PrepareThreshold: 5
-20:00:16.957 [main] INFO  org.example.App - 103
+14:34:06.948 [main] DEBUG org.postgresql.Driver - Loading driver configuration via classloader jdk.internal.loader.ClassLoaders$AppClassLoader@251a69d7
+14:34:06.948 [main] DEBUG org.postgresql.Driver - Loading driver configuration via classloader jdk.internal.loader.ClassLoaders$AppClassLoader@251a69d7
+14:34:06.955 [main] DEBUG org.postgresql.Driver - Connecting with URL: jdbc:postgresql://localhost:8432/postgres?user=test&password=test
+14:34:06.955 [main] DEBUG org.postgresql.Driver - Connecting with URL: jdbc:postgresql://localhost:8432/postgres?user=test&password=test
+14:34:06.971 [main] DEBUG org.postgresql.jdbc.PgConnection - PostgreSQL JDBC Driver 42.6.0
+14:34:06.971 [main] DEBUG org.postgresql.jdbc.PgConnection - PostgreSQL JDBC Driver 42.6.0
+14:34:06.976 [main] DEBUG org.postgresql.jdbc.PgConnection -   setDefaultFetchSize = 0
+14:34:06.976 [main] DEBUG org.postgresql.jdbc.PgConnection -   setDefaultFetchSize = 0
+14:34:06.976 [main] DEBUG org.postgresql.jdbc.PgConnection -   setPrepareThreshold = 5
+14:34:06.976 [main] DEBUG org.postgresql.jdbc.PgConnection -   setPrepareThreshold = 5
+14:34:06.984 [main] DEBUG org.postgresql.core.v3.ConnectionFactoryImpl - Trying to establish a protocol version 3 connection to localhost:8432
+14:34:06.984 [main] DEBUG org.postgresql.core.v3.ConnectionFactoryImpl - Trying to establish a protocol version 3 connection to localhost:8432
+14:34:06.993 [main] FINEST org.postgresql.core.Encoding - Creating new Encoding UTF-8 with fastASCIINumbers true
+14:34:06.993 [main] FINEST org.postgresql.core.Encoding - Creating new Encoding UTF-8 with fastASCIINumbers true
+14:34:06.993 [main] FINEST org.postgresql.core.Encoding - Creating new Encoding UTF-8 with fastASCIINumbers true
+14:34:06.993 [main] FINEST org.postgresql.core.Encoding - Creating new Encoding UTF-8 with fastASCIINumbers true
+14:34:06.997 [main] DEBUG org.postgresql.core.v3.ConnectionFactoryImpl - Receive Buffer Size is 408,300
+14:34:06.997 [main] DEBUG org.postgresql.core.v3.ConnectionFactoryImpl - Receive Buffer Size is 408,300
+14:34:06.997 [main] DEBUG org.postgresql.core.v3.ConnectionFactoryImpl - Send Buffer Size is 146,988
+14:34:06.997 [main] DEBUG org.postgresql.core.v3.ConnectionFactoryImpl - Send Buffer Size is 146,988
+14:34:06.997 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  FE=> SSLRequest
+14:34:06.997 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  FE=> SSLRequest
+14:34:07.002 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  <=BE SSLRefused
+14:34:07.002 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  <=BE SSLRefused
+14:34:07.005 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  FE=> StartupPacket(user=test, database=postgres, client_encoding=UTF8, DateStyle=ISO, TimeZone=Europe/Moscow, extra_float_digits=2)
+14:34:07.005 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  FE=> StartupPacket(user=test, database=postgres, client_encoding=UTF8, DateStyle=ISO, TimeZone=Europe/Moscow, extra_float_digits=2)
+14:34:07.010 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  <=BE AuthenticationReqMD5(salt=b17c213c)
+14:34:07.010 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  <=BE AuthenticationReqMD5(salt=b17c213c)
+14:34:07.027 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  FE=> Password(md5digest=md520274c6d00bd4169f7ee856461c08bd2)
+14:34:07.027 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  FE=> Password(md5digest=md520274c6d00bd4169f7ee856461c08bd2)
+14:34:07.032 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  <=BE AuthenticationOk
+14:34:07.032 [main] FINEST org.postgresql.core.v3.ConnectionFactoryImpl -  <=BE AuthenticationOk
+14:34:07.057 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(TimeZone = Europe/Moscow)
+14:34:07.057 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(TimeZone = Europe/Moscow)
+14:34:07.062 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(standard_conforming_strings = on)
+14:34:07.062 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(standard_conforming_strings = on)
+14:34:07.062 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(session_authorization = test)
+14:34:07.062 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(session_authorization = test)
+14:34:07.062 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(server_version = 15.2 (Debian 15.2-1.pgdg110+1))
+14:34:07.062 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(server_version = 15.2 (Debian 15.2-1.pgdg110+1))
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(server_encoding = UTF8)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(server_encoding = UTF8)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(is_superuser = off)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(is_superuser = off)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(IntervalStyle = postgres)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(IntervalStyle = postgres)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(integer_datetimes = on)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(integer_datetimes = on)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(default_transaction_read_only = off)
+14:34:07.063 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(default_transaction_read_only = off)
+14:34:07.064 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(DateStyle = ISO)
+14:34:07.064 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(DateStyle = ISO)
+14:34:07.064 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(client_encoding = UTF8)
+14:34:07.064 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(client_encoding = UTF8)
+14:34:07.064 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(application_name = )
+14:34:07.064 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(application_name = )
+14:34:07.065 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BackendKeyData(pid=107,253,548,ckey=1,240,441,407)
+14:34:07.065 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BackendKeyData(pid=107,253,548,ckey=1,240,441,407)
+14:34:07.065 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:07.065 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:07.067 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@5965d37, maxRows=0, fetchSize=0, flags=1,047
+14:34:07.067 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@5965d37, maxRows=0, fetchSize=0, flags=1,047
+14:34:07.067 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="SET extra_float_digits = 3",oids={})
+14:34:07.067 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="SET extra_float_digits = 3",oids={})
+14:34:07.068 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:07.068 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:07.068 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:07.068 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:07.068 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:07.068 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:07.073 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.073 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.074 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.074 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.074 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SET)
+14:34:07.074 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SET)
+14:34:07.074 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:07.074 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:07.075 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@2ab4bc72, maxRows=0, fetchSize=0, flags=1,047
+14:34:07.075 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.core.SetupQueryRunner$SimpleResultHandler@2ab4bc72, maxRows=0, fetchSize=0, flags=1,047
+14:34:07.075 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="SET application_name = 'PostgreSQL JDBC Driver'",oids={})
+14:34:07.075 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="SET application_name = 'PostgreSQL JDBC Driver'",oids={})
+14:34:07.075 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:07.075 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:07.076 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:07.076 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:07.076 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:07.076 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:07.080 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.080 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SET)
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SET)
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(application_name = PostgreSQL JDBC Driver)
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParameterStatus(application_name = PostgreSQL JDBC Driver)
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:07.081 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:07.084 [main] FINEST org.postgresql.jdbc.PgConnection -     types using binary send = OID_ARRAY,UUID,BYTEA,INT8,INT2,INT4,POINT,TIMESTAMP,BOX,TIMESTAMPTZ,NUMERIC,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,TEXT_ARRAY,TIMETZ,VARCHAR_ARRAY,INT8_ARRAY,TIME,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+14:34:07.084 [main] FINEST org.postgresql.jdbc.PgConnection -     types using binary send = OID_ARRAY,UUID,BYTEA,INT8,INT2,INT4,POINT,TIMESTAMP,BOX,TIMESTAMPTZ,NUMERIC,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,TEXT_ARRAY,TIMETZ,VARCHAR_ARRAY,INT8_ARRAY,TIME,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+14:34:07.084 [main] FINEST org.postgresql.jdbc.PgConnection -     types using binary receive = OID_ARRAY,UUID,BYTEA,INT8,INT2,INT4,POINT,TIMESTAMP,BOX,TIMESTAMPTZ,NUMERIC,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,TEXT_ARRAY,TIMETZ,VARCHAR_ARRAY,INT8_ARRAY,DATE,TIME,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+14:34:07.084 [main] FINEST org.postgresql.jdbc.PgConnection -     types using binary receive = OID_ARRAY,UUID,BYTEA,INT8,INT2,INT4,POINT,TIMESTAMP,BOX,TIMESTAMPTZ,NUMERIC,BYTEA_ARRAY,INT2_ARRAY,INT4_ARRAY,TEXT_ARRAY,TIMETZ,VARCHAR_ARRAY,INT8_ARRAY,DATE,TIME,FLOAT4,FLOAT8,FLOAT4_ARRAY,FLOAT8_ARRAY
+14:34:07.084 [main] FINEST org.postgresql.jdbc.PgConnection -     integer date/time = true
+14:34:07.084 [main] FINEST org.postgresql.jdbc.PgConnection -     integer date/time = true
+14:34:07.092 [main] DEBUG org.postgresql.jdbc.PgConnection -   setAutoCommit = false
+14:34:07.092 [main] DEBUG org.postgresql.jdbc.PgConnection -   setAutoCommit = false
+14:34:07.099 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@6f15d60e, maxRows=0, fetchSize=0, flags=1
+14:34:07.099 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@6f15d60e, maxRows=0, fetchSize=0, flags=1
+14:34:07.099 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:07.099 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:07.100 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:07.100 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:07.100 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:07.100 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:07.101 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:07.101 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:07.101 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:07.101 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:07.101 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:07.101 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:07.102 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:07.102 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:07.102 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:07.102 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:07.107 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.107 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.107 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.107 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:07.109 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:07.110 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:07.110 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:07.111 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:07.111 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:07.111 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:07.111 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:07.117 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:07.117 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:07.117 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:07.117 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:07.123 [main] INFO  org.example.App - 61
+14:34:08.129 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@f68f0dc, maxRows=0, fetchSize=0, flags=22
+14:34:08.129 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@f68f0dc, maxRows=0, fetchSize=0, flags=22
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=S_1,query="COMMIT",oids={})
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=S_1,query="COMMIT",oids={})
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:08.130 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:08.134 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [S_1]
+14:34:08.134 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [S_1]
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@14bdbc74, maxRows=0, fetchSize=0, flags=1
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@14bdbc74, maxRows=0, fetchSize=0, flags=1
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:08.135 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:08.136 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:08.139 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:08.139 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:08.140 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:08.140 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:08.141 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:08.141 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:08.141 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:08.141 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:08.141 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:08.141 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:08.142 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:08.142 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:08.142 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:08.143 [main] INFO  org.example.App - 61
+14:34:09.143 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@12591ac8, maxRows=0, fetchSize=0, flags=22
+14:34:09.143 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@12591ac8, maxRows=0, fetchSize=0, flags=22
+14:34:09.143 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:09.143 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:09.144 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:09.144 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:09.144 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:09.144 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:09.148 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:09.148 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:09.148 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:09.148 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:09.148 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:09.148 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@5a7fe64f, maxRows=0, fetchSize=0, flags=1
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@5a7fe64f, maxRows=0, fetchSize=0, flags=1
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:09.149 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:09.150 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:09.150 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:09.150 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:09.150 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:09.150 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:09.150 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:09.155 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:09.155 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:09.156 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:09.156 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:09.157 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:09.158 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:09.158 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:09.158 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:09.158 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:09.158 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:09.158 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:09.158 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:09.158 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:09.158 [main] INFO  org.example.App - 61
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@38145825, maxRows=0, fetchSize=0, flags=22
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@38145825, maxRows=0, fetchSize=0, flags=22
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:10.162 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@41330d4f, maxRows=0, fetchSize=0, flags=1
+14:34:10.166 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@41330d4f, maxRows=0, fetchSize=0, flags=1
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:10.167 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:10.168 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:10.168 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:10.171 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:10.171 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:10.171 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:10.171 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:10.172 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:10.173 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:10.173 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:10.173 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:10.173 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:10.173 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:10.173 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:10.173 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:10.173 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:10.173 [main] INFO  org.example.App - 61
+14:34:11.178 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@1b66c0fb, maxRows=0, fetchSize=0, flags=22
+14:34:11.178 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@1b66c0fb, maxRows=0, fetchSize=0, flags=22
+14:34:11.179 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:11.179 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:11.179 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:11.179 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:11.179 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:11.179 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:11.184 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:11.184 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:11.184 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:11.184 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:11.184 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:11.184 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@3e0e1046, maxRows=0, fetchSize=0, flags=1
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@3e0e1046, maxRows=0, fetchSize=0, flags=1
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:11.185 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:11.186 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:11.189 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:11.189 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:11.190 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:11.190 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:11.191 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:11.192 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:11.192 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:11.192 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:11.192 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:11.192 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:11.192 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:11.192 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:11.192 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:11.192 [main] INFO  org.example.App - 61
+14:34:12.193 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@24c1b2d2, maxRows=0, fetchSize=0, flags=22
+14:34:12.193 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@24c1b2d2, maxRows=0, fetchSize=0, flags=22
+14:34:12.193 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:12.193 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:12.194 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:12.194 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:12.194 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:12.194 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:12.198 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:12.198 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@7dc19a70, maxRows=0, fetchSize=0, flags=1
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@7dc19a70, maxRows=0, fetchSize=0, flags=1
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:12.199 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:12.200 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:12.204 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:12.204 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:12.205 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:12.205 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:12.205 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:12.205 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:12.205 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:12.205 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:12.206 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:12.206 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:12.206 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:12.207 [main] INFO  org.example.App - 61
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@508dec2b, maxRows=0, fetchSize=0, flags=22
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@508dec2b, maxRows=0, fetchSize=0, flags=22
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:13.212 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:13.216 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:13.216 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:13.216 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:13.216 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:13.216 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:13.216 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1e4f4a5c, maxRows=0, fetchSize=0, flags=1
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1e4f4a5c, maxRows=0, fetchSize=0, flags=1
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:13.217 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:13.218 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:13.221 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:13.221 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:13.221 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:13.221 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:13.223 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:13.224 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:13.224 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:13.224 [main] INFO  org.example.App - 61
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@37313c65, maxRows=0, fetchSize=0, flags=22
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@37313c65, maxRows=0, fetchSize=0, flags=22
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:14.227 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:14.233 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:14.233 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:14.233 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:14.233 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:14.233 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:14.233 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:14.234 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@465232e9, maxRows=0, fetchSize=0, flags=1
+14:34:14.234 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@465232e9, maxRows=0, fetchSize=0, flags=1
+14:34:14.234 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:14.234 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:14.235 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:14.235 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:14.235 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:14.235 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:14.235 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:14.235 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:14.236 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:14.241 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:14.241 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:14.241 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:14.241 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:14.243 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:14.243 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:14.243 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:14.243 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:14.243 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:14.243 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:14.244 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:14.245 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:14.245 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:14.245 [main] INFO  org.example.App - 61
+14:34:15.245 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@798162bc, maxRows=0, fetchSize=0, flags=22
+14:34:15.245 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@798162bc, maxRows=0, fetchSize=0, flags=22
+14:34:15.246 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:15.246 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:15.246 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:15.246 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:15.246 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:15.246 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1df8da7a, maxRows=0, fetchSize=0, flags=1
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1df8da7a, maxRows=0, fetchSize=0, flags=1
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:15.251 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:15.252 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:15.257 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:15.257 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:15.257 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:15.257 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:15.258 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:15.258 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:15.259 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:15.260 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:15.260 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:15.260 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:15.260 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:15.260 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:15.260 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:15.260 [main] INFO  org.example.App - 61
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@23941fb4, maxRows=0, fetchSize=0, flags=22
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@23941fb4, maxRows=0, fetchSize=0, flags=22
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:16.262 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:16.268 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:16.268 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:16.268 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:16.268 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:16.268 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:16.268 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:16.269 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@7486b455, maxRows=0, fetchSize=0, flags=1
+14:34:16.269 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@7486b455, maxRows=0, fetchSize=0, flags=1
+14:34:16.269 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:16.269 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:16.269 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:16.269 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:16.270 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:16.274 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:16.274 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:16.274 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:16.274 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:16.275 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:16.275 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:16.275 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:16.275 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:16.276 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:16.277 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:16.277 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:16.277 [main] INFO  org.example.App - 61
+14:34:17.282 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@660acfb, maxRows=0, fetchSize=0, flags=22
+14:34:17.282 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@660acfb, maxRows=0, fetchSize=0, flags=22
+14:34:17.282 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:17.282 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:17.282 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:17.282 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:17.283 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:17.283 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:17.288 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:17.288 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:17.288 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:17.288 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:17.288 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:17.288 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@5d908d47, maxRows=0, fetchSize=0, flags=1
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@5d908d47, maxRows=0, fetchSize=0, flags=1
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:17.289 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:17.293 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:17.293 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:17.293 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:17.293 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:17.294 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:17.295 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:17.295 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:17.295 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:17.295 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:17.295 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:17.295 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:17.295 [main] INFO  org.example.App - 61
+14:34:18.296 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@5efa40fe, maxRows=0, fetchSize=0, flags=22
+14:34:18.296 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@5efa40fe, maxRows=0, fetchSize=0, flags=22
+14:34:18.296 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:18.296 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:18.297 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:18.297 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:18.297 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:18.297 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:18.301 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:18.301 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:18.301 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:18.301 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:18.301 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:18.301 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1f9f6368, maxRows=0, fetchSize=0, flags=1
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1f9f6368, maxRows=0, fetchSize=0, flags=1
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:18.302 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:18.303 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:18.303 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:18.303 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:18.303 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:18.306 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:18.306 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:18.306 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:18.306 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:18.308 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:18.309 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:18.309 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:18.309 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:18.309 [main] INFO  org.example.App - 61
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@1c9b0314, maxRows=0, fetchSize=0, flags=22
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@1c9b0314, maxRows=0, fetchSize=0, flags=22
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:19.312 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:19.317 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:19.317 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:19.317 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:19.317 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@45385f75, maxRows=0, fetchSize=0, flags=1
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@45385f75, maxRows=0, fetchSize=0, flags=1
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:19.318 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:19.319 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:19.319 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:19.319 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:19.319 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:19.319 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:19.319 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:19.322 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:19.322 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:19.322 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:19.322 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:19.323 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:19.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:19.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:19.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:19.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:19.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:19.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:19.324 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:19.324 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:19.324 [main] INFO  org.example.App - 61
+14:34:20.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@49c90a9c, maxRows=0, fetchSize=0, flags=22
+14:34:20.324 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@49c90a9c, maxRows=0, fetchSize=0, flags=22
+14:34:20.325 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:20.325 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:20.325 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:20.325 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:20.325 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:20.325 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@2d29b4ee, maxRows=0, fetchSize=0, flags=1
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@2d29b4ee, maxRows=0, fetchSize=0, flags=1
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:20.330 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:20.331 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:20.334 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:20.334 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:20.334 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:20.334 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:20.335 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:20.336 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:20.336 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:20.336 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:20.336 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:20.336 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:20.336 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:20.336 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:20.336 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:20.336 [main] INFO  org.example.App - 61
+14:34:21.340 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@69ee81fc, maxRows=0, fetchSize=0, flags=22
+14:34:21.340 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@69ee81fc, maxRows=0, fetchSize=0, flags=22
+14:34:21.340 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:21.340 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:21.340 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:21.340 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:21.341 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:21.341 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:21.346 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:21.346 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:21.346 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:21.346 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:21.346 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:21.346 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@6e2aa843, maxRows=0, fetchSize=0, flags=1
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@6e2aa843, maxRows=0, fetchSize=0, flags=1
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:21.347 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:21.351 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:21.351 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:21.352 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:21.353 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:21.353 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:21.353 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:21.353 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:21.353 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:21.353 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:21.353 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:21.353 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:21.353 [main] INFO  org.example.App - 61
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@6f36c2f0, maxRows=0, fetchSize=0, flags=22
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@6f36c2f0, maxRows=0, fetchSize=0, flags=22
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:22.354 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:22.359 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:22.359 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:22.359 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:22.359 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:22.359 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:22.359 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@f58853c, maxRows=0, fetchSize=0, flags=1
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@f58853c, maxRows=0, fetchSize=0, flags=1
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:22.360 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:22.363 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:22.363 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:22.363 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:22.363 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:22.365 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:22.366 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:22.366 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:22.366 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:22.366 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:22.366 [main] INFO  org.example.App - 61
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@1224144a, maxRows=0, fetchSize=0, flags=22
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@1224144a, maxRows=0, fetchSize=0, flags=22
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:23.367 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@29f7cefd, maxRows=0, fetchSize=0, flags=1
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@29f7cefd, maxRows=0, fetchSize=0, flags=1
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:23.373 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:23.374 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:23.374 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:23.374 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:23.374 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:23.376 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:23.376 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:23.377 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:23.377 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:23.378 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:23.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:23.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:23.379 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:23.379 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:23.379 [main] INFO  org.example.App - 61
+14:34:24.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@700fb871, maxRows=0, fetchSize=0, flags=22
+14:34:24.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@700fb871, maxRows=0, fetchSize=0, flags=22
+14:34:24.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:24.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:24.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:24.379 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:24.380 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:24.380 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@3b35a229, maxRows=0, fetchSize=0, flags=1
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@3b35a229, maxRows=0, fetchSize=0, flags=1
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:24.385 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:24.386 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:24.388 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:24.388 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:24.389 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:24.389 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:24.390 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:24.391 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:24.391 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:24.391 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:24.391 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:24.391 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:24.391 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:24.391 [main] INFO  org.example.App - 61
+14:34:25.394 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@9816741, maxRows=0, fetchSize=0, flags=22
+14:34:25.394 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@9816741, maxRows=0, fetchSize=0, flags=22
+14:34:25.394 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:25.394 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:25.395 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:25.395 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:25.395 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:25.395 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1e16c0aa, maxRows=0, fetchSize=0, flags=1
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@1e16c0aa, maxRows=0, fetchSize=0, flags=1
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:25.400 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:25.401 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:25.406 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:25.406 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:25.407 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:25.407 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:25.409 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:25.410 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:25.410 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:25.410 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:25.410 [main] INFO  org.example.App - 61
+14:34:26.411 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@13d73f29, maxRows=0, fetchSize=0, flags=22
+14:34:26.411 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgConnection$TransactionCommandHandler@13d73f29, maxRows=0, fetchSize=0, flags=22
+14:34:26.412 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:26.412 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=S_1,portal=null)
+14:34:26.412 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:26.412 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=1)
+14:34:26.412 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:26.412 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(COMMIT)
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(I)
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@565f390, maxRows=0, fetchSize=0, flags=1
+14:34:26.416 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -   simple execute, handler=org.postgresql.jdbc.PgStatement$StatementResultHandler@565f390, maxRows=0, fetchSize=0, flags=1
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="BEGIN",oids={})
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Parse(stmt=null,query="select pid from pg_stat_activity where usename = $1",oids={1043})
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Bind(stmt=null,portal=null,$1=<'test'>,type=VARCHAR)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Describe(portal=null)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Execute(portal=null,limit=0)
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:26.417 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  FE=> Sync
+14:34:26.420 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:26.420 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:26.420 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:26.420 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ParseComplete [null]
+14:34:26.421 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:26.421 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:26.421 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:26.421 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(BEGIN)
+14:34:26.421 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:26.421 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE BindComplete [unnamed]
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE RowDescription(1)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -         Field(pid,INT4,4,T)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE DataRow(len=2)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE CommandStatus(SELECT 1)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:26.422 [main] FINEST org.postgresql.core.v3.QueryExecutorImpl -  <=BE ReadyForQuery(T)
+14:34:26.422 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:26.422 [main] FINEST org.postgresql.jdbc.PgConnection -   getString columnIndex: 1
+14:34:26.422 [main] INFO  org.example.App - 61
