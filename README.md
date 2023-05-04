@@ -62,6 +62,11 @@ mvn clean package -DskipTests
 
 ### Проводим тесты
 
+Тестируемый запрос (значение подставляемой переменной = 1):
+```roomsql
+select pg_backend_pid() where 1 = ?
+```
+
 **PGBOUNCER TRANSACTIONAL**
 
 ```
