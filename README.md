@@ -103,7 +103,7 @@ org.postgresql.util.PSQLException: ERROR: prepared statement "S_1" already exist
 ```
 java -jar target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://localhost:8432/postgres?user=test&password=test"
 ```
-Ошибка не воспроизводится
+В отличие от pgbouncer, ошибка не воспроизводится
 ```
 12:44:26.575 [main] INFO  org.example.App - BEGIN
 12:44:26.589 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
