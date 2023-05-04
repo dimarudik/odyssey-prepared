@@ -48,6 +48,7 @@ kubectl port-forward service/pgbouncer-transaction 6432:6432
 kubectl port-forward service/pgbouncer-session 7432:7432
 kubectl port-forward service/odyssey-transaction 8432:8432
 ```
+С сессионным pgbouncer'ом тесты не проводятся. Создается, чтобы можно было проверить, что на нем ошибка не воспроизводится. 
 
 **Собираем проект**
 
