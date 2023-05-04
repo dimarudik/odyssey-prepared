@@ -9,12 +9,17 @@
         </Console>
     </Appenders>
     <Loggers>
-        <Root level="trace">
-<!--            <AppenderRef ref="STDOUT"/>-->
-            <AppenderRef ref="MainLog"/>
+        <Root level="info">
+            <AppenderRef ref="STDOUT"/>
+<!--            <AppenderRef ref="MainLog"/>-->
         </Root>
-        <Logger name="org.postgresql" level="all">
+        <Logger name="org.postgresql" level="info">
+            <AppenderRef ref="STDOUT"/>
+        </Logger>
+<!--
+        <Logger name="org.postgresql" level="info">
             <AppenderRef ref="MainLog"/>
         </Logger>
+-->
     </Loggers>
 </Configuration>

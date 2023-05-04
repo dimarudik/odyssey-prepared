@@ -11,19 +11,27 @@ public class App {
     }
     private static final Logger logger = LogManager.getLogger(App.class);
 
-    public static void main(String[] args) throws InterruptedException, SQLException {
-        try (Connection connection = DriverManager.getConnection(args[0])) {
-            while (true) {
+    public static void main(String[] args) throws InterruptedException {
+        while (true) {
+            try (Connection connection = DriverManager.getConnection(args[0])) {
                 connection.setAutoCommit(false);
-                String selectSQL = "select pid from pg_stat_activity where usename = ?";
+                String selectSQL = "select pg_backend_pid() where 1 = ?";
                 PreparedStatement preparedStatement = connection.prepareStatement(selectSQL);
-                preparedStatement.setString(1, "test");
+                preparedStatement.setInt(1, 1);
+                logger.info("{}", "BEGIN");
                 ResultSet rs = preparedStatement.executeQuery();
+                logger.info("{}", "execute <unnamed>: select pg_backend_pid() where 1 = $1");
                 if (rs.next()) {
                     logger.info("{}", rs.getString(1));
                 }
+                logger.info("{}", "Sleeping in transaction...");
                 Thread.sleep(1000);
                 connection.commit();
+                logger.info("{}", "COMMIT");
+                logger.info("{}", "Sleeping out of transaction...");
+                Thread.sleep(3000);
+            } catch (SQLException e) {
+                logger.error("{}", e);
             }
         }
     }

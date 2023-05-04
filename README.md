@@ -3,17 +3,33 @@
 
 **Готовим миникуб**
 
-1. Preparations:
+1. How to start:
 
 ```
 minikube start --cpus=6 --memory=8192m
-wget 
+wget https://github.com/dimarudik/odyssey-prepared.git
+cd odyssey-prepared
+helm install app k8s/HelmChart
 ```
 
-2. Build project:
+2. Check prepared statements:
+
+```
+kubectl get pods
+
+NAME                                 READY   STATUS    RESTARTS      AGE
+app-db-689c4c8486-pk6xc              4/4     Running   0             47s
+odyssey-prepared1-55bb4d564d-kggg6   1/1     Running   2 (32s ago)   47s
+odyssey-prepared2-7ff4676684-w7xwb   1/1     Running   2 (31s ago)   47s
+```
+**разобраться с логированием в докере!**
+
+---
+3. Build project:
 
 ```
 mvn clean package -DskipTests
+docker build -t dimarudik/odyssey-prepared .
 ```
 
 2. Create image:
@@ -22,11 +38,6 @@ mvn clean package -DskipTests
 docker build . -t dimarudik/shard:latest
 ```
 
-3. Login with your Docker ID to push images:
-
-```
-docker login
-```
 
 4. Upload image to Docker Hub:
 
