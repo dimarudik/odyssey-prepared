@@ -58,6 +58,7 @@ kubectl port-forward service/odyssey-transaction 8432:8432
 ```
 mvn clean package -DskipTests
 ```
+---
 
 ### Проводим тесты
 
