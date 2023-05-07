@@ -9,4 +9,4 @@ COPY ./target/odyssey-prepared-1.0-SNAPSHOT.jar /odyssey-prepared/odyssey-prepar
 COPY ./target/libs/* /odyssey-prepared/libs/
 ENV JAR_ARGS="arg"
 ENTRYPOINT java -jar /odyssey-prepared/odyssey-prepared-1.0-SNAPSHOT.jar ${JAR_ARGS}
-#docker build ./k8s/Docker/App -t dimarudik/odyssey-prepared
+
