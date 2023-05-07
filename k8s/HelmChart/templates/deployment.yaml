@@ -153,16 +153,16 @@ spec:
                 configMapKeyRef:
                   name  : configmap
                   key   : pgbouncer_ignore_startup_parameters
-# odyssey-noprepared transaction
-        - name: odyssey-noprepared
-          image: dimarudik/odyssey-noprepared:latest
+# odyssey transaction
+        - name: odyssey
+          image: dimarudik/odyssey:latest
           ports:
             - name: tpc
               protocol: TCP
               containerPort: 8432
-        # odyssey transaction
-        - name: odyssey
-          image: dimarudik/odyssey:latest
+# odyssey-noprepared transaction
+        - name: odyssey-noprepared
+          image: dimarudik/odyssey-noprepared:latest
           ports:
             - name: tpc
               protocol: TCP
