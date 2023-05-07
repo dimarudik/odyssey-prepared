@@ -11,4 +11,4 @@ WORKDIR /home/odyssey
 RUN wget https://raw.githubusercontent.com/dimarudik/odyssey-prepared/odyssey-pps-workload/k8s/odyssey-prepared/odyssey-noprepared.conf
 
 ENTRYPOINT ["odyssey","/home/odyssey/odyssey-noprepared.conf"]
-#docker build . -t dimarudik/odyssey
+#docker build ./k8s/odyssey-prepared/ -t dimarudik/odyssey-noprepared -f ./k8s/odyssey-prepared/Dockerfile-noprepared
