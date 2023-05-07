@@ -8,7 +8,7 @@ RUN addgroup odyssey && \
     useradd odyssey -g odyssey
 USER odyssey:odyssey
 WORKDIR /home/odyssey
-RUN wget https://raw.githubusercontent.com/dimarudik/demo/minikube/k8s/odyssey-prepared/odyssey.conf
+RUN wget https://raw.githubusercontent.com/dimarudik/odyssey-prepared/odyssey-pps-workload/k8s/odyssey-prepared/odyssey-noprepared.conf
 
-ENTRYPOINT ["odyssey","/home/odyssey/odyssey.conf"]
+ENTRYPOINT ["odyssey","/home/odyssey/odyssey-noprepared.conf"]
 #docker build . -t dimarudik/odyssey
