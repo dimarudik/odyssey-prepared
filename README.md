@@ -22,7 +22,9 @@ select id from test where id = ?
 | Elapsed time<br/>(sec) |         31          |                109                 |               89               |                91                |
 
 
-### КОНФИГИ ПУЛЕРОВ
+---
+
+### Настройки пулеров
 
 **PGBOUNCER TRANSACTIONAL**
 
