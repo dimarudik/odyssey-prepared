@@ -1,214 +1,206 @@
-# Проверяем prepared statements в Odyssey от Yandex
+# Тестируем производительность разных пулеров на одной и той же задаче
 
-При работе через механизм prepared statements с базой Postgresql через пулер pgbouncer в транзакционном режиме мы cталкиваемся с ошибкой вида:
-```java
-org.postgresql.util.PSQLException: ERROR: prepared statement "S_1" already exists
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.example.App.main(App.java:29) [odyssey-prepared-1.0-SNAPSHOT.jar:?]
-```
-в логах Postgresql получаем:
-```java
-2023-05-04 10:45:08.915 MSK [62] DETAIL:  parameters: $1 = '1'
-2023-05-04 10:45:08.915 MSK [62] LOG:  duration: 0.011 ms
-2023-05-04 10:45:09.922 MSK [62] ERROR:  prepared statement "S_1" already exists
-2023-05-04 10:45:09.922 MSK [62] STATEMENT:  COMMIT
-```
-чтобы решить проблему приходится, на уровне драйвера, выставлять параметр
-```properties
-prepareThreshold = 0
-```
-<p>в результате чего, все преимущество отсутствия повторных разборов запросов теряется.
-На каждый запрос Postgresql делает полный разбор.</p> 
+### Задача:
 
-<p>Решением данной проблемы станет фича от пулера Odyssey от Яндекса. 
-<br>Если совсем кратко, в основу решения вошло использование двух хеш таблиц, где сопостовляются существующие prepared statements в установленных соединениях от пулера к базе, вновь приходящим сессиям, где в транзакциях есть prepared statement. 
-Также существуют механизм удаления устаревших малоиспользуемых запросов.</p>
-
----
-
-### Готовим миникуб и окружение
-
-```
-minikube start --cpus=6 --memory=8192m
-wget https://github.com/dimarudik/odyssey-prepared.git
-cd odyssey-prepared
-helm install app k8s/HelmChart
-```
-**Как результат, получаем одну базу и три пулера**
-
-Два pgbouncer'а (транзакционный и сессионный) и один odyssey (транзакционный). Отрываем для них порты с хоста в отдельном терминале.
-
-```
-kubectl port-forward service/pgbouncer-transaction 6432:6432
-kubectl port-forward service/pgbouncer-session 7432:7432
-kubectl port-forward service/odyssey-transaction 8432:8432
-```
-С сессионным pgbouncer'ом тесты не проводятся. Создается, чтобы можно было проверить, что на нем ошибка не воспроизводится. 
-
-**Собираем проект**
-
-Это простое приложение, которое в цикле открывает новое соединение и делает одну транзакцию с prepared statement.
-Есть задержка как внутри транзакции, так и после комита.
-
-```
-mvn clean package -DskipTests
-```
----
-
-### Проводим тесты
-
-Тестируемый запрос (значение подставляемой переменной = 1):
+Есть таблица:
 ```roomsql
-select pg_backend_pid() where 1 = ?
+create table test (id int primary key, name text);
+insert into test values (0, 'a');
+insert into test values (1, 'b');
 ```
+в одном соединении с бд будем выполнять в цикле 100000 раз:
+```roomsql
+select id from test where id = ?
+```
+
+---
+
+### Результаты тестов
+
+|                        | Postgresql<br/>5432 | PgBouncer<br/>transaction<br/>6432 | PgBouncer<br/>session<br/>7432 | Odyssey<br/>transaction<br/>8432 |
+|:----------------------:|:-------------------:|:----------------------------------:|:------------------------------:|:--------------------------------:|
+| Elapsed time<br/>(sec) |         31          |                109                 |               89               |                91                |
+
+
+### КОНФИГИ ПУЛЕРОВ
 
 **PGBOUNCER TRANSACTIONAL**
 
 ```
-java -jar target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://localhost:6432/postgres?user=test&password=test"
-```
-На втором цикле пытаемся переиспользовать prepared statement с новым подключением к pgbouncer. 
-<br>И, хотя мы попадем на тот же бэкенд, соединение у нас новое и в сессии информации о prepared statement для этого соединения не осталось.
-Получаем ошибку и PGBOUNCER перекидывает нас на новый backend при новом подключении. 
+[databases]
 
-```java
-12:33:52.918 [main] INFO  org.example.App - BEGIN
-12:33:52.933 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:33:52.933 [main] INFO  org.example.App - 290
-12:33:52.933 [main] INFO  org.example.App - Sleeping in transaction...
-12:33:53.937 [main] INFO  org.example.App - COMMIT
-12:33:53.937 [main] INFO  org.example.App - Sleeping out of transaction...
-12:33:56.965 [main] INFO  org.example.App - BEGIN
-12:33:56.972 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:33:56.972 [main] INFO  org.example.App - 290
-12:33:56.972 [main] INFO  org.example.App - Sleeping in transaction...
-12:33:57.978 [main] ERROR org.example.App - {}
-org.postgresql.util.PSQLException: ERROR: prepared statement "S_1" already exists
-	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2713) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2401) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:368) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:327) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.jdbc.PgConnection.executeTransactionCommand(PgConnection.java:965) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.postgresql.jdbc.PgConnection.commit(PgConnection.java:987) ~[postgresql-42.6.0.jar:42.6.0]
-	at org.example.App.main(App.java:29) [odyssey-prepared-1.0-SNAPSHOT.jar:?]
-12:33:58.007 [main] INFO  org.example.App - BEGIN
-12:33:58.013 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:33:58.013 [main] INFO  org.example.App - 291
-12:33:58.013 [main] INFO  org.example.App - Sleeping in transaction...
-12:33:59.023 [main] INFO  org.example.App - COMMIT
-12:33:59.023 [main] INFO  org.example.App - Sleeping out of transaction...
+* = host=127.0.0.1 port=5432 auth_user=pgbouncer
+
+[pgbouncer]
+logfile = /var/log/pgbouncer/pgbouncer.log
+pidfile = /var/run/pgbouncer/pgbouncer-t.pid
+listen_addr = *
+listen_port = 6432
+unix_socket_dir = /tmp
+auth_type = md5
+auth_file = /etc/pgbouncer/userlist.txt
+auth_query = SELECT usename, passwd FROM pg_shadow WHERE usename=$1
+admin_users = pgbouncer
+stats_users = okagent, stats, postgres
+pool_mode = transaction
+server_reset_query = DISCARD ALL
+ignore_startup_parameters = extra_float_digits,search_path,options,client_min_messages,statement_timeout
+max_client_conn = 6000
+default_pool_size = 200
+reserve_pool_size = 30
+reserve_pool_timeout = 3
+max_db_connections = 200
+query_wait_timeout = 300
 ```
 
-**ODYSSEY TRANSACTIONAL (одно приложение)**
+**PGBOUNCER SESSION**
 
 ```
-java -jar target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://localhost:8432/postgres?user=test&password=test"
+[databases]
+
+* = host=127.0.0.1 port=5432 auth_user=pgbouncer
+
+[pgbouncer]
+logfile = /var/log/pgbouncer/pgbouncer.log
+pidfile = /var/run/pgbouncer/pgbouncer-s.pid
+listen_addr = *
+listen_port = 7432
+unix_socket_dir = /tmp
+auth_type = md5
+auth_file = /etc/pgbouncer/userlist.txt
+auth_query = SELECT usename, passwd FROM pg_shadow WHERE usename=$1
+admin_users = pgbouncer
+stats_users = okagent, stats, postgres
+pool_mode = session
+server_reset_query = DISCARD ALL
+ignore_startup_parameters = extra_float_digits,search_path,options,client_min_messages,statement_timeout
+max_client_conn = 6000
+default_pool_size = 200
+reserve_pool_size = 30
+reserve_pool_timeout = 3
+max_db_connections = 200
+query_wait_timeout = 300
 ```
-В отличие от pgbouncer, ошибка не воспроизводится
+**ODYSSEY TRANSACTIONAL**
+
 ```
-12:44:26.575 [main] INFO  org.example.App - BEGIN
-12:44:26.589 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:44:26.589 [main] INFO  org.example.App - 315
-12:44:26.589 [main] INFO  org.example.App - Sleeping in transaction...
-12:44:27.597 [main] INFO  org.example.App - COMMIT
-12:44:27.597 [main] INFO  org.example.App - Sleeping out of transaction...
-12:44:30.629 [main] INFO  org.example.App - BEGIN
-12:44:30.634 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:44:30.634 [main] INFO  org.example.App - 315
-12:44:30.634 [main] INFO  org.example.App - Sleeping in transaction...
-12:44:31.645 [main] INFO  org.example.App - COMMIT
-12:44:31.645 [main] INFO  org.example.App - Sleeping out of transaction...
-```
+daemonize yes
+pid_file "/tmp/odyssey.pid"
+unix_socket_dir "/tmp"
+unix_socket_mode "0644"
+locks_dir "/tmp/odyssey"
+graceful_die_on_errors no
+enable_online_restart no
+bindwith_reuseport no
 
-**ODYSSEY TRANSACTIONAL (два приложения)**
+log_file "/tmp/odyssey.log"
+log_format "%p %t %l [%i %s] (%c) %m\n"
+log_to_stdout no
+log_syslog no
+log_syslog_ident "odyssey"
+log_syslog_facility "daemon"
+log_debug no
+log_session no
+log_query no
+log_stats no
+stats_interval 0
+log_general_stats_prom no
+log_route_stats_prom no
 
-Тут может быть два варианта (зависит - насколько позже вы запутили второе приложение от первого)
-1. Когда второе приложение попытается переиспользовать prepared statement, которое уже переиспользуется в открытой транзакции.
-2. Когда второе приложение попытается переиспользовать prepared statement, которое никто не использует.
+workers 1
+resolvers 1
+readahead 8192
+cache_coroutine 0
+coroutine_stack_size 8
+nodelay yes
+keepalive 15
+keepalive_keep_interval 75
+keepalive_probes 9
+keepalive_usr_timeout 0
 
-**Вариант 1 (вторая сессия попадает в открытую транзакцию первой)**
+listen {
+	host "*"
+	port 8432
+	backlog 128
+	tls "disable"
+	compression no
+}
 
-В двух терминалах запускаем
-```java
-java -jar target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://localhost:8432/postgres?user=test&password=test"
-```
+storage "postgres_server" {
+	type "remote"
+	host "127.0.0.1"
+	port 5432
+}
 
-Логи первого
-```java
-13:03:01.679 [main] INFO  org.example.App - BEGIN
-13:03:01.684 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-13:03:01.684 [main] INFO  org.example.App - 315
-13:03:01.684 [main] INFO  org.example.App - Sleeping in transaction...
-13:03:02.689 [main] INFO  org.example.App - COMMIT
-13:03:02.689 [main] INFO  org.example.App - Sleeping out of transaction...
-13:03:05.720 [main] INFO  org.example.App - BEGIN
-13:03:05.724 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-13:03:05.724 [main] INFO  org.example.App - 353
-13:03:05.724 [main] INFO  org.example.App - Sleeping in transaction...
-13:03:06.733 [main] INFO  org.example.App - COMMIT
-```
+database "postgres" {
+        user "odyssey" {
+                authentication "none"
+                pool_routing "internal"
+                storage "postgres_server"
+                pool "session"
+        }
+}
 
-Логи второго
-```java
-13:03:02.542 [main] INFO  org.example.App - BEGIN
-13:03:02.554 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-13:03:02.554 [main] INFO  org.example.App - 353
-13:03:02.555 [main] INFO  org.example.App - Sleeping in transaction...
-13:03:03.565 [main] INFO  org.example.App - COMMIT
-13:03:03.565 [main] INFO  org.example.App - Sleeping out of transaction...
-13:03:06.597 [main] INFO  org.example.App - BEGIN
-13:03:06.602 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-13:03:06.602 [main] INFO  org.example.App - 315
-13:03:06.602 [main] INFO  org.example.App - Sleeping in transaction...
-13:03:07.608 [main] INFO  org.example.App - COMMIT
-```
+database default {
+	user default {
+		authentication "md5"
+		auth_query "SELECT usename, passwd FROM pg_shadow WHERE usename=$1"
+		auth_query_user "odyssey"
+		auth_query_db "postgres"
+		storage "postgres_server"
+		pool "transaction"
+		pool_discard no
+		pool_smart_discard yes
+		pool_reserve_prepared_statement yes
+	}
+}
 
-Мы пытаемся переиспользовать prepared statement, но не можем, так как prepared statement уже используется в сессии с открытой транзакцией.
-Поэтому получаем новый backend.
+storage "local" {
+	type "local"
+}
 
-**Вариант 2 (нет открытых транзакций с нужным prepared statement)**
-
-В двух терминалах запускаем
-```java
-java -jar target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://localhost:8432/postgres?user=test&password=test"
-```
-
-Логи первого
-```java
-12:57:10.008 [main] INFO  org.example.App - BEGIN
-12:57:10.019 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:57:10.020 [main] INFO  org.example.App - 315
-12:57:10.020 [main] INFO  org.example.App - Sleeping in transaction...
-12:57:11.028 [main] INFO  org.example.App - COMMIT
-12:57:11.028 [main] INFO  org.example.App - Sleeping out of transaction...
-12:57:14.059 [main] INFO  org.example.App - BEGIN
-12:57:14.064 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:57:14.064 [main] INFO  org.example.App - 315
-12:57:14.064 [main] INFO  org.example.App - Sleeping in transaction...
-12:57:15.072 [main] INFO  org.example.App - COMMIT
-12:57:15.072 [main] INFO  org.example.App - Sleeping out of transaction...
-```
-Логи второго
-```java
-12:57:12.372 [main] INFO  org.example.App - BEGIN
-12:57:12.385 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:57:12.385 [main] INFO  org.example.App - 315
-12:57:12.385 [main] INFO  org.example.App - Sleeping in transaction...
-12:57:13.397 [main] INFO  org.example.App - COMMIT
-12:57:13.397 [main] INFO  org.example.App - Sleeping out of transaction...
-12:57:16.429 [main] INFO  org.example.App - BEGIN
-12:57:16.432 [main] INFO  org.example.App - execute <unnamed>: select pg_backend_pid() where 1 = $1
-12:57:16.432 [main] INFO  org.example.App - 315
-12:57:16.432 [main] INFO  org.example.App - Sleeping in transaction...
-12:57:17.441 [main] INFO  org.example.App - COMMIT
-12:57:17.441 [main] INFO  org.example.App - Sleeping out of transaction...
+database "console" {
+	user default {
+		authentication "none"
+		role "admin"
+		pool "session"
+		storage "local"
+	}
+}
 ```
 
-Prepared statement переиспользуется на одном и том же бэкенде.
+**DB HOST**
+
+```shell
+$ lscpu
+
+Architecture:        x86_64
+CPU op-mode(s):      32-bit, 64-bit
+Byte Order:          Little Endian
+CPU(s):              64
+On-line CPU(s) list: 0-63
+Thread(s) per core:  2
+Core(s) per socket:  8
+Socket(s):           4
+NUMA node(s):        4
+Vendor ID:           GenuineIntel
+CPU family:          6
+Model:               46
+Model name:          Intel(R) Xeon(R) CPU           X7560  @ 2.27GHz
+Stepping:            6
+CPU MHz:             1769.937
+CPU max MHz:         2266.0000
+CPU min MHz:         1064.0000
+BogoMIPS:            4528.42
+Virtualization:      VT-x
+L1d cache:           32K
+L1i cache:           32K
+L2 cache:            256K
+L3 cache:            24576K
+NUMA node0 CPU(s):   0-7,32-39
+NUMA node1 CPU(s):   8-15,40-47
+NUMA node2 CPU(s):   16-23,48-55
+NUMA node3 CPU(s):   24-31,56-63
+```
 
 ---

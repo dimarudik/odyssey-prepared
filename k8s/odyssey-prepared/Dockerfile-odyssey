@@ -12,9 +12,7 @@ RUN apt-get update -y && apt-get -y install git cmake debhelper \
     make build-essential postgresql-server-dev-all libpam-dev libzstd-dev zlib1g-dev
 RUN cd /opt && git clone https://github.com/yandex/odyssey.git
 WORKDIR /opt/odyssey
-RUN make local_build && \
-    rm odyssey.conf && \
-    wget https://raw.githubusercontent.com/dimarudik/demo/minikube/k8s/odyssey-prepared/odyssey.conf
+RUN make local_build
 RUN dpkg-buildpackage -us -uc
 WORKDIR /opt/odyssey
 
