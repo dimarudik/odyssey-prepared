@@ -26,7 +26,7 @@ select id from test where id = ?
 
 ### Настройки пулеров
 
-**PGBOUNCER TRANSACTIONAL**
+**PgBouncer transaction**
 
 ```
 [databases]
@@ -55,7 +55,7 @@ max_db_connections = 200
 query_wait_timeout = 300
 ```
 
-**PGBOUNCER SESSION**
+**PgBouncer session**
 
 ```
 [databases]
@@ -83,7 +83,7 @@ reserve_pool_timeout = 3
 max_db_connections = 200
 query_wait_timeout = 300
 ```
-**ODYSSEY TRANSACTIONAL**
+**Odyssey transaction**
 
 ```
 daemonize yes
