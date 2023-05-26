@@ -4,54 +4,79 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.concurrent.*;
 
 public class App {
-    private static final String selectSQL = "select id from test where id = ?";
-    private static final int threads = 20;
-    private static final int loopCount = 100000;
+    private static final Logger logger = LogManager.getLogger(App.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException, ExecutionException {
+        String url = args[0];
+        int threads = Integer.parseInt(args[1]);
+        int SQLStatementsCapacity = Integer.parseInt(args[2]);
+        int loopCount = Integer.parseInt(args[3]);
         ExecutorService executorService = Executors.newFixedThreadPool(threads + 1);
+        List<Future<LogMessage>> tasks = new ArrayList<>();
         for (int i = 0; i < threads; i++) {
-            executorService.submit(new CallableTask(args[0], selectSQL, loopCount));
+            tasks.add(executorService.submit(new CallableTask(url, SQLStatementsCapacity, loopCount)));
         }
+
+        Iterator<Future<LogMessage>> futureIterator = tasks.listIterator();
+        while (futureIterator.hasNext()) {
+            Future<LogMessage> future = futureIterator.next();
+            if (future.isDone()) {
+                LogMessage logMessage = future.get();
+                if (logMessage != null) {
+                    logger.info("\t backend = {} \t\t executions per second = {}\t\t elapsed time (sec) = {}",
+                            logMessage.backend(), logMessage.execsPerSecond(), logMessage.elapsedTime());
+                }
+                futureIterator.remove();
+            }
+            if (!futureIterator.hasNext()) {
+                futureIterator = tasks.listIterator();
+            }
+            Thread.sleep(1);
+        };
 
         executorService.shutdown();
     }
-
 }
 
-class CallableTask implements Callable<String> {
+class CallableTask implements Callable<LogMessage> {
     private final String url;
-    private final String statement;
+    private final int SQLStatementCapacity;
     private final int loopCount;
     private static final Logger logger = LogManager.getLogger(CallableTask.class);
 
-    public CallableTask(String url, String statement, int loopCount) {
+    public CallableTask(String url, int SQLStatementCapacity, int loopCount) {
         this.url = url;
-        this.statement = statement;
+        this.SQLStatementCapacity = SQLStatementCapacity;
         this.loopCount = loopCount;
     }
 
     @Override
-    public String call() {
+    public LogMessage call() {
+        LogMessage logMessage = null;
         try (Connection connection = DriverManager.getConnection(url);
-             PreparedStatement preparedStatement = connection.prepareStatement(statement);
              Statement statement = connection.createStatement()) {
             connection.setAutoCommit(false);
-
             int id = 0;
+
             long start = System.currentTimeMillis();
+            List<String> listOfSQLStatements = getListOfSQLStatements(SQLStatementCapacity);
             for (int i = 0; i < loopCount; i++) {
+                PreparedStatement preparedStatement =
+                        connection.prepareStatement(listOfSQLStatements
+                                .get((int) (Math.random() * SQLStatementCapacity)));
                 preparedStatement.setInt(1, i % 2);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
                     id = resultSet.getInt(1);
                 }
                 resultSet.close();
+                preparedStatement.close();
                 connection.commit();
             }
             long finish = System.currentTimeMillis();
@@ -64,11 +89,23 @@ class CallableTask implements Callable<String> {
             resultSet.close();
             connection.commit();
 
-            logger.info("\t backend = {}; \t\t executions per second = {};\t\t elapsed time (sec) = {}; ",
-                    id, (loopCount * 1d / ((finish - start) / 1000)), (finish - start) / 1000d );
+            logMessage = new LogMessage(id, (loopCount * 1d / ((double) (finish - start) / 1000d)),
+                    (finish - start) / 1000d);
         } catch (SQLException e) {
             logger.error("{}", e);
         }
-        return Thread.currentThread().getName();
+        return logMessage;
+    }
+
+    private List<String> getListOfSQLStatements(int SQLStatementsCapacity) {
+        List<String> listOfSQLStatements = new ArrayList<>(SQLStatementsCapacity);
+        for (int i = 0; i < SQLStatementsCapacity; i++) {
+            String SQLStatementPart1 = "select id from test t";
+            String SQLStatementPart2 = " where id = ?";
+            listOfSQLStatements.add(SQLStatementPart1 + i + SQLStatementPart2);
+        }
+        return listOfSQLStatements;
     }
 }
+
+record LogMessage (int backend, double execsPerSecond, double elapsedTime) {}

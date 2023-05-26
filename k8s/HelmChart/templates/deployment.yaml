@@ -15,7 +15,7 @@ spec:
 # POSTGRESQL DB
         - name: app-db
           image: {{ .Values.container.image }}:{{ .Values.container.imageTag }}
-          args: ["-c", "password_encryption=md5", "-c", "wal_level=logical", "-c", "log_min_duration_statement=10000", "-c", "log_statement=ddl", "-c", "log_directory=pg_log", "-c", "log_filename=%u_%a.log", "-c", "logging_collector=on", "-c", "wal_log_hints=on"]
+          args: ["-c", "password_encryption=md5", "-c", "wal_level=logical", "-c", "log_min_duration_statement=10000", "-c", "log_statement=ddl", "-c", "log_directory=pg_log", "-c", "log_filename=%u_%a.log", "-c", "logging_collector=on", "-c", "wal_log_hints=on", "-c", "shared_preload_libraries=pg_stat_statements"]
           ports:
             - name: tpc
               protocol: TCP
