@@ -13,9 +13,14 @@ insert into test values (1, 'b');
 select id from test t0 where id = ?
 ```
 увеличиваяя количество потоков (каждый поток выполняет одну и ту же задачу), <br/>а также будем
-увеличивать вариативность текста запроса, путем случайного выбора алиаса таблицы "tn" в тексте запроса.<br/>
+увеличивать вариативность текста запроса, <br/>путем случайного выбора алиаса таблицы "tn" в тексте запроса.<br/>
 Результатом будет среднее время в секундах потраченное на выполнение задачи.
 
+Как собрать:
+```java
+mvn clean package -DskipTests
+```
+Как запустить:
 ```java
 java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 1 1 100000
 java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 60 1 100000
@@ -30,7 +35,7 @@ java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar 
 |:----------------------:|:------------------------------------:|:-------------------:|:----------------------------------:|:------------------------------:|:--------------------------------:|
 |           1            |                  1                   |         32          |                127                 |               87               |               101                |
 |           60           |                  1                   |         325         |                1255                |              850               |               3540               |
-|           60           |                  60                  |         283         |                                    |                                |                                  |
+|           60           |                  60                  |         283         |                1260                |              848               |               3680               |
 ---
 
 ### Настройки пулеров
