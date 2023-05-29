@@ -8,20 +8,29 @@ create table test (id int primary key, name text);
 insert into test values (0, 'a');
 insert into test values (1, 'b');
 ```
-в одном соединении с бд будем выполнять в цикле 100000 раз:
+будем выполнять в цикле 100000 раз запрос вида:
 ```roomsql
-select id from test where id = ?
+select id from test t0 where id = ?
+```
+увеличиваяя количество потоков (каждый поток выполняет одну и ту же задачу), <br/>а также будем
+увеличивать вариативность текста запроса, путем случайного выбора алиаса таблицы "tn" в тексте запроса.<br/>
+Результатом будет среднее время в секундах потраченное на выполнение задачи.
+
+```java
+java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 1 1 100000
+java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 60 1 100000
+java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 60 60 100000
 ```
 
 ---
 
 ### Результаты тестов
 
-|                        | Postgresql<br/>5432 | PgBouncer<br/>transaction<br/>6432 | PgBouncer<br/>session<br/>7432 | Odyssey<br/>transaction<br/>8432 |
-|:----------------------:|:-------------------:|:----------------------------------:|:------------------------------:|:--------------------------------:|
-| Elapsed time<br/>(sec) |         31          |                109                 |               89               |                91                |
-
-
+| Threads<br/>(Sessions) | Number Of<br/>Unique <br/>Statements | Postgresql<br/>5432 | PgBouncer<br/>transaction<br/>6432 | PgBouncer<br/>session<br/>7432 | Odyssey<br/>transaction<br/>8432 |
+|:----------------------:|:------------------------------------:|:-------------------:|:----------------------------------:|:------------------------------:|:--------------------------------:|
+|           1            |                  1                   |         32          |                127                 |               87               |               101                |
+|           60           |                  1                   |         325         |                1255                |              850               |               3540               |
+|           60           |                  60                  |         283         |                                    |                                |                                  |
 ---
 
 ### Настройки пулеров
