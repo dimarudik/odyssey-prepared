@@ -1,20 +1,4 @@
-# Тестируем производительность разных пулеров на одной и той же задаче
-
-### Задача:
-
-Есть таблица:
-```roomsql
-create table test (id int primary key, name text);
-insert into test values (0, 'a');
-insert into test values (1, 'b');
-```
-будем выполнять в цикле 100000 раз запрос вида:
-```roomsql
-select id from test t0 where id = ?
-```
-увеличиваяя количество потоков (каждый поток выполняет одну и ту же задачу), <br/>а также будем
-увеличивать вариативность текста запроса, <br/>путем случайного выбора алиаса таблицы "tn" в тексте запроса.<br/>
-Результатом будет среднее время в секундах потраченное на выполнение задачи.
+# Тестируем время подключения к бд через пулер и без
 
 Как собрать:
 ```java
@@ -22,9 +6,7 @@ mvn clean package -DskipTests
 ```
 Как запустить:
 ```java
-java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 1 1 100000
-java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 60 1 100000
-java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 60 60 100000
+java -jar projects/odyssey-multithread/target/odyssey-prepared-1.0-SNAPSHOT.jar "jdbc:postgresql://10.0.0.4:5432/postgres?user=test&password=test" 60
 ```
 
 ---

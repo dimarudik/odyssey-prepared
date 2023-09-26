@@ -15,12 +15,10 @@ public class App {
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         String url = args[0];
         int threads = Integer.parseInt(args[1]);
-        int SQLStatementsCapacity = Integer.parseInt(args[2]);
-        int loopCount = Integer.parseInt(args[3]);
         ExecutorService executorService = Executors.newFixedThreadPool(threads + 1);
         List<Future<LogMessage>> tasks = new ArrayList<>();
         for (int i = 0; i < threads; i++) {
-            tasks.add(executorService.submit(new CallableTask(url, SQLStatementsCapacity, loopCount)));
+            tasks.add(executorService.submit(new CallableTask(url)));
             Thread.sleep(10);
         }
 
@@ -30,8 +28,8 @@ public class App {
             if (future.isDone()) {
                 LogMessage logMessage = future.get();
                 if (logMessage != null) {
-                    logger.info("thread = {} \t backend = {} \t executions per second = {}\t elapsed time (sec) = {}",
-                            logMessage.threadName(), logMessage.backend(), logMessage.execsPerSecond(), logMessage.elapsedTime());
+                    logger.info("thread = {} \t backend = {} \t elapsed time (sec) = {}",
+                            logMessage.threadName(), logMessage.backend(), logMessage.elapsedTime());
                 }
                 futureIterator.remove();
             }
@@ -39,7 +37,7 @@ public class App {
                 futureIterator = tasks.listIterator();
             }
             Thread.sleep(1);
-        };
+        }
 
         executorService.shutdown();
     }
@@ -47,39 +45,19 @@ public class App {
 
 class CallableTask implements Callable<LogMessage> {
     private final String url;
-    private final int SQLStatementCapacity;
-    private final int loopCount;
     private static final Logger logger = LogManager.getLogger(CallableTask.class);
 
-    public CallableTask(String url, int SQLStatementCapacity, int loopCount) {
+    public CallableTask(String url) {
         this.url = url;
-        this.SQLStatementCapacity = SQLStatementCapacity;
-        this.loopCount = loopCount;
     }
 
     @Override
     public LogMessage call() {
         LogMessage logMessage = null;
+        long start = System.currentTimeMillis();
         try (Connection connection = DriverManager.getConnection(url);
              Statement statement = connection.createStatement()) {
-            connection.setAutoCommit(false);
             int id = 0;
-
-            long start = System.currentTimeMillis();
-            List<String> listOfSQLStatements = getListOfSQLStatements(SQLStatementCapacity);
-            for (int i = 0; i < loopCount; i++) {
-                PreparedStatement preparedStatement =
-                        connection.prepareStatement(listOfSQLStatements
-                                .get((int) (Math.random() * SQLStatementCapacity)));
-                preparedStatement.setInt(1, i % 2);
-                ResultSet resultSet = preparedStatement.executeQuery();
-                if (resultSet.next()) {
-                    id = resultSet.getInt(1);
-                }
-                resultSet.close();
-                preparedStatement.close();
-                connection.commit();
-            }
             long finish = System.currentTimeMillis();
 
             String selectSQL = "select pg_backend_pid()";
@@ -88,25 +66,15 @@ class CallableTask implements Callable<LogMessage> {
                 id = resultSet.getInt(1);
             }
             resultSet.close();
-            connection.commit();
 
-            logMessage = new LogMessage(Thread.currentThread().getName(), id, (int)(loopCount * 1d / ((double) (finish - start) / 1000d)),
-                    (finish - start) / 1000d);
-        } catch (SQLException e) {
+            logMessage = new LogMessage(Thread.currentThread().getName(), id, (finish - start) / 1000d);
+            Thread.sleep(1000);
+        } catch (SQLException | InterruptedException e) {
             logger.error("{}", e);
-        }
+        } 
         return logMessage;
     }
 
-    private List<String> getListOfSQLStatements(int SQLStatementsCapacity) {
-        List<String> listOfSQLStatements = new ArrayList<>(SQLStatementsCapacity);
-        for (int i = 0; i < SQLStatementsCapacity; i++) {
-            String SQLStatementPart1 = "select id from test t";
-            String SQLStatementPart2 = " where id = ?";
-            listOfSQLStatements.add(SQLStatementPart1 + i + SQLStatementPart2);
-        }
-        return listOfSQLStatements;
-    }
 }
 
-record LogMessage (String threadName, int backend, int execsPerSecond, double elapsedTime) {}
+record LogMessage (String threadName, int backend, double elapsedTime) {}
