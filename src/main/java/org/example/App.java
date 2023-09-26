@@ -71,7 +71,7 @@ class CallableTask implements Callable<LogMessage> {
             Thread.sleep(1000);
         } catch (SQLException | InterruptedException e) {
             logger.error("{}", e);
-        } 
+        }
         return logMessage;
     }
 
