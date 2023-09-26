@@ -21,6 +21,7 @@ public class App {
         List<Future<LogMessage>> tasks = new ArrayList<>();
         for (int i = 0; i < threads; i++) {
             tasks.add(executorService.submit(new CallableTask(url, SQLStatementsCapacity, loopCount)));
+            Thread.sleep(10);
         }
 
         Iterator<Future<LogMessage>> futureIterator = tasks.listIterator();
@@ -29,8 +30,8 @@ public class App {
             if (future.isDone()) {
                 LogMessage logMessage = future.get();
                 if (logMessage != null) {
-                    logger.info("\t backend = {} \t\t executions per second = {}\t\t elapsed time (sec) = {}",
-                            logMessage.backend(), logMessage.execsPerSecond(), logMessage.elapsedTime());
+                    logger.info("thread = {} \t backend = {} \t executions per second = {}\t elapsed time (sec) = {}",
+                            logMessage.threadName(), logMessage.backend(), logMessage.execsPerSecond(), logMessage.elapsedTime());
                 }
                 futureIterator.remove();
             }
@@ -89,7 +90,7 @@ class CallableTask implements Callable<LogMessage> {
             resultSet.close();
             connection.commit();
 
-            logMessage = new LogMessage(id, (loopCount * 1d / ((double) (finish - start) / 1000d)),
+            logMessage = new LogMessage(Thread.currentThread().getName(), id, (int)(loopCount * 1d / ((double) (finish - start) / 1000d)),
                     (finish - start) / 1000d);
         } catch (SQLException e) {
             logger.error("{}", e);
@@ -108,4 +109,4 @@ class CallableTask implements Callable<LogMessage> {
     }
 }
 
-record LogMessage (int backend, double execsPerSecond, double elapsedTime) {}
+record LogMessage (String threadName, int backend, int execsPerSecond, double elapsedTime) {}
