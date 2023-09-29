@@ -1,3 +1,0 @@
-container:
-  image: dimarudik/postgres
-  imageTag: latest
