@@ -28,10 +28,6 @@ public class App {
             Future<LogMessage> future = futureIterator.next();
             if (future.isDone()) {
                 LogMessage logMessage = future.get();
-                if (logMessage != null) {
-                    logger.info("thread = {} \t backend = {} \t executions per second = {}\t elapsed time (sec) = {}",
-                            logMessage.threadName(), logMessage.backend(), logMessage.execsPerSecond(), logMessage.elapsedTime());
-                }
                 futureIterator.remove();
             }
             if (!futureIterator.hasNext()) {
@@ -62,29 +58,38 @@ class CallableTask implements Callable<LogMessage> {
             try (Connection connection = DriverManager.getConnection(url);
                  Statement statement = connection.createStatement()) {
                 connection.setAutoCommit(false);
-                int id = 0;
+                String hostname = null;
+
+                String selectSQL = "select inet_server_addr()";
+                ResultSet resultSet = statement.executeQuery(selectSQL);
+                if (resultSet.next()) {
+                    hostname = resultSet.getString(1);
+                }
+                resultSet.close();
+                connection.commit();
 
                 long start = System.currentTimeMillis();
                 PreparedStatement preparedStatement =
                         connection.prepareStatement("insert into test (name) values (?)");
-                preparedStatement.setString(1, Thread.currentThread().getName());
+                preparedStatement.setString(1, hostname);
                 int affectedRows = preparedStatement.executeUpdate();
                 preparedStatement.close();
                 connection.commit();
                 long finish = System.currentTimeMillis();
 
-                String selectSQL = "select pg_backend_pid()";
-                ResultSet resultSet = statement.executeQuery(selectSQL);
-                if (resultSet.next()) {
-                    id = resultSet.getInt(1);
-                }
-                resultSet.close();
-                connection.commit();
-
-                logMessage = new LogMessage(Thread.currentThread().getName(), id, (int) (loopCount * 1d / ((double) (finish - start) / 1000d)),
+                logMessage = new LogMessage(
+                        Thread.currentThread().getName(),
+                        hostname,
                         (finish - start) / 1000d);
-                Thread.sleep(1000);
+                logger.info("thread = {} \t hostname = {} \t elapsed time (sec) = {}",
+                        logMessage.threadName(), logMessage.hostname(), logMessage.elapsedTime());
+                Thread.sleep(2000);
             } catch (SQLException | InterruptedException e) {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    throw new RuntimeException(ex);
+                }
                 logger.error("{}", e);
             }
         }
@@ -92,4 +97,4 @@ class CallableTask implements Callable<LogMessage> {
     }
 }
 
-record LogMessage (String threadName, int backend, int execsPerSecond, double elapsedTime) {}
+record LogMessage (String threadName, String hostname, double elapsedTime) {}
