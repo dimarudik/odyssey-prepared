@@ -2,6 +2,7 @@ package org.example;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.postgresql.PGConnection;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -38,8 +39,8 @@ public class App {
             if (!futureIterator.hasNext()) {
                 futureIterator = tasks.listIterator();
             }
-            Thread.sleep(1);
-        };
+            Thread.sleep(5);
+        }
 
         executorService.shutdown();
     }
@@ -60,10 +61,8 @@ class CallableTask implements Callable<LogMessage> {
     @Override
     public LogMessage call() {
         LogMessage logMessage = null;
-        try (Connection connection = DriverManager.getConnection(url);
-             Statement statement = connection.createStatement()) {
+        try (Connection connection = DriverManager.getConnection(url)) {
             connection.setAutoCommit(false);
-            int id = 0;
 
             long start = System.currentTimeMillis();
             List<String> listOfSQLStatements = getListOfSQLStatements(SQLStatementCapacity);
@@ -74,26 +73,18 @@ class CallableTask implements Callable<LogMessage> {
                 preparedStatement.setInt(1, i % 2);
                 ResultSet resultSet = preparedStatement.executeQuery();
                 if (resultSet.next()) {
-                    id = resultSet.getInt(1);
+                    int id = resultSet.getInt(1);
                 }
                 resultSet.close();
                 preparedStatement.close();
                 connection.commit();
             }
             long finish = System.currentTimeMillis();
-
-            String selectSQL = "select pg_backend_pid()";
-            ResultSet resultSet = statement.executeQuery(selectSQL);
-            if (resultSet.next()) {
-                id = resultSet.getInt(1);
-            }
-            resultSet.close();
-            connection.commit();
-
-            logMessage = new LogMessage(Thread.currentThread().getName(), id, (int)(loopCount * 1d / ((double) (finish - start) / 1000d)),
-                    (finish - start) / 1000d);
+            PGConnection pgConnection = connection.unwrap(PGConnection.class);
+            logMessage = new LogMessage(Thread.currentThread().getName(), pgConnection.getBackendPID(),
+                    (int)(loopCount * 1d / ((double) (finish - start) / 1000d)), (finish - start) / 1000d);
         } catch (SQLException e) {
-            logger.error("{}", e);
+            logger.error(e);
         }
         return logMessage;
     }
