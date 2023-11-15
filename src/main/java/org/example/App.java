@@ -15,17 +15,18 @@ public class App {
 
     public static void main(String[] args) throws InterruptedException, ExecutionException {
         String url = args[0];
-        int threads = Integer.parseInt(args[1]);
+        int threadCount = Integer.parseInt(args[1]);
         int SQLStatementsCapacity = Integer.parseInt(args[2]);
         int loopCount = Integer.parseInt(args[3]);
-        ExecutorService executorService = Executors.newFixedThreadPool(threads + 1);
+        ExecutorService executorService = Executors.newFixedThreadPool(threadCount + 1);
         List<Future<LogMessage>> tasks = new ArrayList<>();
-        for (int i = 0; i < threads; i++) {
+        for (int i = 0; i < threadCount; i++) {
             tasks.add(executorService.submit(new CallableTask(url, SQLStatementsCapacity, loopCount)));
             Thread.sleep(10);
         }
 
         Iterator<Future<LogMessage>> futureIterator = tasks.listIterator();
+        double elapsedTime = 0;
         while (futureIterator.hasNext()) {
             Future<LogMessage> future = futureIterator.next();
             if (future.isDone()) {
@@ -33,6 +34,7 @@ public class App {
                 if (logMessage != null) {
                     logger.info("thread = {} \t backend = {} \t executions per second = {}\t elapsed time (sec) = {}",
                             logMessage.threadName(), logMessage.backend(), logMessage.execsPerSecond(), logMessage.elapsedTime());
+                    elapsedTime += logMessage.elapsedTime();
                 }
                 futureIterator.remove();
             }
@@ -42,6 +44,7 @@ public class App {
             Thread.sleep(5);
         }
 
+        logger.info("Average elapsed time: {}", elapsedTime / threadCount);
         executorService.shutdown();
     }
 }
@@ -83,8 +86,11 @@ class CallableTask implements Callable<LogMessage> {
             PGConnection pgConnection = connection.unwrap(PGConnection.class);
             logMessage = new LogMessage(Thread.currentThread().getName(), pgConnection.getBackendPID(),
                     (int)(loopCount * 1d / ((double) (finish - start) / 1000d)), (finish - start) / 1000d);
+            Thread.sleep(2000);
         } catch (SQLException e) {
             logger.error(e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
         return logMessage;
     }
