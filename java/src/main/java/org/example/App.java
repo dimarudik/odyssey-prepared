@@ -2,19 +2,32 @@ package org.example;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.postgresql.Driver;
 import org.postgresql.PGConnection;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Properties;
 import java.util.concurrent.*;
 
 public class App {
     private static final Logger logger = LogManager.getLogger(App.class);
 
-    public static void main(String[] args) throws InterruptedException, ExecutionException {
+    public static void main(String[] args) throws InterruptedException, ExecutionException, UnknownHostException {
+        InetAddress[] addr = InetAddress.getAllByName("rda-pcidb0045.pgsql.tcsbank.ru");
+        for (InetAddress inetAddress : addr) {
+            System.out.println(inetAddress.getHostAddress());
+        }
         String url = args[0];
+
+        Properties properties = Driver.parseURL(url, null);
+        assert properties != null;
+        properties.forEach((k, v) -> System.out.println(k + " " + v));
+
         int threadCount = Integer.parseInt(args[1]);
         int SQLStatementsCapacity = Integer.parseInt(args[2]);
         int loopCount = Integer.parseInt(args[3]);
